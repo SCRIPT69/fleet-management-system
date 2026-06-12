@@ -1,5 +1,6 @@
 package com.script.fleetmanagementsystem.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.script.fleetmanagementsystem.entity.enums.TripStatus;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
@@ -37,6 +38,7 @@ public class Trip {
     @JoinColumn(name = "license_plate", nullable = false)
     private Truck truck;
 
+    @JsonIgnore
     @ManyToMany
     @JoinTable(
             name = "transports",

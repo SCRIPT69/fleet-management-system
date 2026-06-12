@@ -1,5 +1,6 @@
 package com.script.fleetmanagementsystem.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.script.fleetmanagementsystem.entity.enums.OrderStatus;
 import jakarta.persistence.*;
 import java.math.BigDecimal;
@@ -39,6 +40,7 @@ public class Order {
     @JoinColumn(name = "company_id", nullable = false)
     private ClientCompany clientCompany;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "orders")
     private List<Trip> trips = new ArrayList<>();
 
